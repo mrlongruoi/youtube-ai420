@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   description: "Tube AI420 Created by MrLongruoi",
 };
 
+/**
+ * Root layout component that provides Clerk authentication context and applies the Inter font.
+ *
+ * @param children - Page content to render inside the document body.
+ * @returns The root HTML document wrapped in a ClerkProvider, with the Inter font applied to the body.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
