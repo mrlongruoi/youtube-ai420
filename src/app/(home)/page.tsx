@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      Home Page
+      I will load videos in the future
     </div>
   );
 }
