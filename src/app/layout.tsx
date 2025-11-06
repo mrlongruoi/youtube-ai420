@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   description: "Tube AI420 Created by MrLongruoi",
 };
 
+/**
+ * Application root layout that renders an <html> element and a <body> with the Inter font applied.
+ *
+ * @param children - The React nodes to render inside the document body (page content).
+ * @returns The root HTML structure containing the rendered children.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
