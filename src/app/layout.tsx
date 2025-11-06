@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   description: "Tube AI420 Created by MrLongruoi",
 };
 
+/**
+ * Root layout component that provides authentication, TRPC context, and global font styling for the app.
+ *
+ * @param children - React nodes to render inside the document body; these are wrapped by the TRPC provider.
+ * @returns A JSX element representing the HTML document structure with Clerk and TRPC providers wrapping `children`.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
