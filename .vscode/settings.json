@@ -4,5 +4,7 @@
       "fileMatch": ["/package.json"],
       "url": "https://cdn.jsdelivr.net/gh/SchemaStore/schemastore@master/src/schemas/json/package.json"
     }
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
