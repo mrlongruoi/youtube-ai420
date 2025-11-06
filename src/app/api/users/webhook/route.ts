@@ -5,6 +5,16 @@ import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { users } from "@/db/schema";
 
+/**
+ * Handle Clerk webhook POST requests signed by Svix and apply user changes to the database.
+ *
+ * Verifies Svix headers and payload, then processes `user.created`, `user.deleted`, and
+ * `user.updated` events to insert, delete, or update user rows in the database.
+ *
+ * @param req - The incoming HTTP request containing the webhook payload
+ * @returns `Response` with status 200 and body "Webhook received" on success; 400 with an error message on verification or validation failures
+ * @throws If `CLERK_WEBHOOK_SIGNING_SECRET` is not set in the environment
+ */
 export async function POST(req: Request) {
   const CLERK_WEBHOOK_SIGNING_SECRET = process.env.CLERK_WEBHOOK_SIGNING_SECRET;
 
