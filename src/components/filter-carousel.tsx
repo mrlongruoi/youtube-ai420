@@ -23,6 +23,19 @@ interface FilterCarouselProps {
     }[];
 }
 
+/**
+ * Renders a horizontal filter carousel with selectable badges, navigation controls, and fades at the edges.
+ *
+ * Displays an "All" badge and one badge per item in `data`; when `isLoading` is true it shows skeleton placeholders instead.
+ * Invokes `onSelect` with an item's `value` when that badge is clicked, or with `null` when "All" is clicked.
+ * The component tracks the carousel position to hide/show the left/right fade overlays based on visibility.
+ *
+ * @param value - Currently selected filter value (`string`) or `null`/`undefined` for no selection.
+ * @param isLoading - When `true`, show skeleton placeholders in place of badges.
+ * @param onSelect - Optional callback called with the selected value or `null` for the "All" selection.
+ * @param data - Array of items to render as badges; each item has `{ value: string, label: string }`.
+ * @returns The rendered filter carousel React element containing badges, navigation controls, and edge fades.
+ */
 export function FilterCarousel({ value, isLoading, onSelect, data }: Readonly<FilterCarouselProps>) {
     const [api, setApi] = useState<CarouselApi>();
 
