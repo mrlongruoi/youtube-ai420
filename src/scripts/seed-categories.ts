@@ -18,6 +18,13 @@ const categoryNames = [
   "Travel and events",
 ];
 
+/**
+ * Seeds a predefined list of category records into the database and logs progress.
+ *
+ * Constructs seed records from the module's categoryNames array, inserts them into the
+ * `categories` table, and logs success. On failure, logs the error and exits the process
+ * with code 1.
+ */
 async function main() {
   console.log("Seeding categories...");
 
