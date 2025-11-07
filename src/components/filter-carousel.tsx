@@ -34,18 +34,20 @@ export function FilterCarousel({ value, isLoading, onSelect, data }: Readonly<Fi
         if (!api) {
             return;
         }
-
         setCount(api.scrollSnapList().length);
 
         setCurrent(api.selectedScrollSnap() + 1);
 
-        api.on("select", () => {
-            setCurrent(api.selectedScrollSnap() + 1);
-        })
+        const handleSelect = () => setCurrent(api.selectedScrollSnap() + 1);
+        api.on("select", handleSelect);
+
+        return () => {
+            api.off("select", handleSelect);
+        };
     }, [api]);
 
     return (
-        <div className="relarive w-full">
+        <div className="relative w-full">
             {/* left fade */}
             <div
                 className={cn(
@@ -76,8 +78,7 @@ export function FilterCarousel({ value, isLoading, onSelect, data }: Readonly<Fi
                             </Badge>
                         </CarouselItem>
                     )}
-
-                    {!isLoading &&
+                    {isLoading &&
                         Array.from({ length: 14 }).map((_, index) => (
                             <CarouselItem key={index} className="pl-3 basis-auto">
                                 <Skeleton className="rounded-lg px-3 py-1 h-full text-sm w-[100px] font-semibold">
@@ -94,7 +95,7 @@ export function FilterCarousel({ value, isLoading, onSelect, data }: Readonly<Fi
                             onClick={() => onSelect(item.value)}
                         >
                             <Badge
-                                variant={value == null ? "default" : "secondary"}
+                                variant={value === item.value ? "secondary" : "default"}
                                 className="rounded-lg px-3 py-1 cursor-pointer whitespace-nowrap text-sm"
                             >
                                 {item.label}
