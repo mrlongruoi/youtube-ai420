@@ -54,7 +54,7 @@ export const StudioSidebarHeader = () => {
 
             <div className="flex flex-col items-center mt-2 gap-y-1">
                 <p className="text-sm font-medium">Your Profile</p>
-                <p className="tet-xs text-muted-foreground">{user.fullName}</p>
+                <p className="text-xs text-muted-foreground">{user.fullName}</p>
             </div>
         </SidebarHeader>
     )

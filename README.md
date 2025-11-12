@@ -1,0 +1,1 @@
+bun ./src/scripts/seed-categories.ts

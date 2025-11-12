@@ -1,0 +1,1 @@
+export const DEAFAULT_LIMIT = 5;
