@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   description: "Tube AI420 Created by MrLongruoi",
 };
 
+/**
+ * Renders the application's root HTML layout and wraps children with global providers and UI.
+ *
+ * @param children - The page content to render inside the root layout.
+ * @returns The root JSX element that wraps `children` with authentication, TRPC, and global toast providers and applies the site font.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
